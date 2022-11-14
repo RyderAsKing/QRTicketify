@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tickets = Ticket::get();
+        $active = $tickets->where('status', 'active')->count();
+        $used = $tickets->where('status', 'used')->count();
+
+        return view('home', [
+            'tickets' => $tickets,
+            'active' => $active,
+            'used' => $used,
+        ]);
     }
 }

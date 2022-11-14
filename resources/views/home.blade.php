@@ -3,21 +3,30 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-8 mt-2">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+                    You are logged in!
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <div class="card-header">
+                    Total tickets
+                </div>
 
-                    {{ __('You are logged in!') }}
+                <div class="card-body">
+                    {{$tickets->count()}} <span class="text-muted">({{$active}} active and {{$used}} used
+                        )</span>
                 </div>
             </div>
         </div>
     </div>
+
+    <a href="#" class="btn btn-success mt-2">Create a new ticket</a> <a href="#" class="btn btn-warning mt-2">Manage
+        tickets</a>
 </div>
 @endsection

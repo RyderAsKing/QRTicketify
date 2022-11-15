@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 mt-2">
+
+
             <div class="card">
                 <div class="card-header">Create a new ticket</div>
                 <div class="card-body">

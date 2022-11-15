@@ -54,6 +54,12 @@ class TicketController extends Controller
             'ticket_string' => Str::random(32),
             'status' => 'active',
         ]);
+
+        if ($ticket) {
+            return back()->with(['success' => 'Created a ticket successfully']);
+        } else {
+            return redirect('/'); // something went wrong which we wont deal here
+        }
     }
 
     /**

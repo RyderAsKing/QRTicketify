@@ -31,5 +31,6 @@
             href="{{route('tickets.index')}}" class="btn btn-warning mt-2">Manage
             tickets</a>
     </div>
+
 </div>
 @endsection

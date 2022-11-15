@@ -12,6 +12,6 @@ class Ticket extends Model
     protected $fillable = ['ticket_string', 'status', 'email', 'used_at'];
 
     protected $casts = [
-        'used_at' => 'datetime',
+        'used_at' => 'timestamp',
     ];
 }

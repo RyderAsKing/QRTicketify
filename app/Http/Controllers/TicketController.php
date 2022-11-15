@@ -123,13 +123,21 @@ class TicketController extends Controller
         )->first();
 
         if ($ticket) {
-            return [
+            $info = [
                 'id' => $ticket->id,
                 'ticket' => $ticket->ticket_string,
                 'email' => $ticket->email,
                 'created' => $ticket->created_at->diffForHumans(),
                 'status' => $ticket->status,
             ];
+
+            if ($ticket->status == 'active') {
+                $ticket->status = 'used';
+                $ticket->used_at = now();
+            }
+            $ticket->save();
+
+            return $info;
         }
     }
 }

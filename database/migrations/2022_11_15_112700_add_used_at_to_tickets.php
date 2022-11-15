@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::table('tickets', function (Blueprint $table) {
             //
-            $table->dateTime('used_at');
+            $table->timestamp('used_at')->nullable();
         });
     }
 

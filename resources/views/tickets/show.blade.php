@@ -9,7 +9,7 @@
                         {{$ticket->email}}</span></div>
 
                 <div class="card-body text-center ">
-                    {!! QrCode::size(200)->generate(Request::url()); !!}
+                    {!! QrCode::size(200)->generate($ticket->ticket_string); !!}
                     <div class="mt-2">
                         <span class="text-muted">Show me at the counter</span>
                     </div>

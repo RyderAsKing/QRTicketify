@@ -28,3 +28,8 @@ Route::resource(
     'tickets',
     \App\Http\Controllers\TicketController::class
 )->parameters(['tickets' => 'ticket:ticket_string']);
+
+Route::get('/check', [
+    \App\Http\Controllers\TicketController::class,
+    'check',
+])->name('check');

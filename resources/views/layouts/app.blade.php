@@ -16,6 +16,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
+
+        <script src="https://unpkg.com/html5-qrcode"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     </head>
 
     <body>
@@ -94,6 +97,8 @@
                 @yield('content')
             </main>
         </div>
+
+        @yield('script')
     </body>
 
 </html>

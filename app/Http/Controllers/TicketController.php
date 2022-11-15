@@ -107,4 +107,9 @@ class TicketController extends Controller
     {
         //
     }
+
+    public function check(Ticket $ticket)
+    {
+        return view('check');
+    }
 }

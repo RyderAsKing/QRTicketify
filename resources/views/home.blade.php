@@ -26,7 +26,10 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn-success mt-2">Create a new ticket</a> <a href="#" class="btn btn-warning mt-2">Manage
-        tickets</a>
+    <div class="buttons">
+        <a href="#" class="btn btn-success mt-2 text-white">Create a new ticket</a> <a href="#"
+            class="btn btn-warning mt-2">Manage
+            tickets</a>
+    </div>
 </div>
 @endsection

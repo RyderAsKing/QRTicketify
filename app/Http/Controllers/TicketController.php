@@ -55,7 +55,7 @@ class TicketController extends Controller
     public function show(Ticket $ticket)
     {
         //
-        dd($ticket);
+        return view('tickets.show', ['ticket' => $ticket]);
     }
 
     /**

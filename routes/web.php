@@ -24,4 +24,7 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
     'home'
 );
 
-Route::resource('tickets', \App\Http\Controllers\TicketController::class);
+Route::resource(
+    'tickets',
+    \App\Http\Controllers\TicketController::class
+)->parameters(['tickets' => 'ticket:ticket_string']);

@@ -21,12 +21,15 @@
                         <tbody>
                             @foreach ($tickets as $ticket)
                             <tr>
-                                <th scope="row">{{$ticket->id}}</th>
-                                <td><code>{{$ticket->ticket_string}}</code></td>
+                                <th scope="row"><a href="{{route('tickets.show', $ticket)}}">{{$ticket->id}}</a></th>
+                                <td>
+                                    {!! QrCode::size(50)->generate($ticket->ticket_string); !!}
+                                </td>
                                 <td>{{$ticket->email}}</td>
                                 <td><span
                                         class="badge @if($ticket->status == 'active') alert-success @else alert-danger @endif">{{$ticket->status}}</span>
                                 </td>
+
                                 <td><a href="#" class="btn btn-info text-white">Send ticket</a></td>
                             </tr>
                             @endforeach

@@ -8,8 +8,8 @@
                 <div class="card-header">Ticket scanner</div>
 
                 <div class="card-body text-center" style="margin: 0px auto;">
-                    <div id="qr-reader" style="width:500px"></div>
                     <div id="qr-reader-results"></div>
+                    <div id="qr-reader" style="width:500px"></div>
                 </div>
             </div>
         </div>
@@ -36,6 +36,23 @@ lastResult = decodedText;
 // Handle on success condition with the decoded message.
 console.log(`Scan result ${decodedText}`, decodedResult);
 
+
+axios.post('/test', {
+ticket_string: lastResult,
+})
+.then(function (response) {
+    resultContainer.innerHTML = `<div class="card" style="margin: 4px auto; width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${response.data.id} - ${response.data.ticket}</h5>
+            <p class="card-text">Created ${response.data.created}, registered to ${response.data.email}</p>
+            <div class="alert-information">Current status - ${response.data.status}</div>
+        </div>
+    </div>`;
+console.log(response);
+})
+.catch(function (error) {
+console.log(error);
+});
 
 }
 }

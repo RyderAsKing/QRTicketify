@@ -33,3 +33,8 @@ Route::get('/check', [
     \App\Http\Controllers\TicketController::class,
     'check',
 ])->name('check');
+
+Route::post('/test', [
+    \App\Http\Controllers\TicketController::class,
+    'test_and_use',
+])->name('test');

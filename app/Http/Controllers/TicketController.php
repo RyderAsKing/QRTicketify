@@ -108,8 +108,28 @@ class TicketController extends Controller
         //
     }
 
-    public function check(Ticket $ticket)
+    public function check()
     {
         return view('check');
+    }
+
+    public function test_and_use(Request $request)
+    {
+        $this->validate($request, ['ticket_string' => 'required|min:32']);
+
+        $ticket = Ticket::where(
+            'ticket_string',
+            $request->ticket_string
+        )->first();
+
+        if ($ticket) {
+            return [
+                'id' => $ticket->id,
+                'ticket' => $ticket->ticket_string,
+                'email' => $ticket->email,
+                'created' => $ticket->created_at->diffForHumans(),
+                'status' => $ticket->status,
+            ];
+        }
     }
 }

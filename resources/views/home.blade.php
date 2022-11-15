@@ -27,8 +27,8 @@
     </div>
 
     <div class="buttons">
-        <a href="#" class="btn btn-success mt-2 text-white">Create a new ticket</a> <a href="#"
-            class="btn btn-warning mt-2">Manage
+        <a href="{{route('tickets.create')}}" class="btn btn-success mt-2 text-white">Create a new ticket</a> <a
+            href="{{route('tickets.index')}}" class="btn btn-warning mt-2">Manage
             tickets</a>
     </div>
 </div>

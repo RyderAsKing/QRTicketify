@@ -58,7 +58,7 @@ class TicketController extends Controller
         if ($ticket) {
             return back()->with(['success' => 'Created a ticket successfully']);
         } else {
-            return redirect('/'); // something went wrong which we wont deal here
+            return back()->with(['danger' => 'Something went wrong']);
         }
     }
 

@@ -43,9 +43,9 @@ ticket_string: lastResult,
 .then(function (response) {
     resultContainer.innerHTML = `<div class="card" style="margin: 4px auto; width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">${response.data.id} - ${response.data.ticket}</h5>
+            <h5 class="card-title"><code>${response.data.id} - ${response.data.ticket}</code></h5>
             <p class="card-text">Created ${response.data.created}, registered to ${response.data.email}</p>
-            <div class="alert-information">Current status - ${response.data.status}</div>
+            <div class="alert-information">Current status - <strong><code>${response.data.status}</code></strong></div>
         </div>
     </div>`;
 console.log(response);

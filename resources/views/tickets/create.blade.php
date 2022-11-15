@@ -12,7 +12,10 @@
                         <div class="form-group mb-2">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                placeholder="Enter email">
+                                placeholder="Enter email" name="email" value={{old('email')}}>
+                            @error('email')
+                            <p class="text-muted">{{$message}}</p>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Create a ticket</button>

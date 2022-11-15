@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -45,6 +46,14 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, ['email' => 'required|email']);
+
+        // creating a ticket
+        $ticket = Ticket::create([
+            'email' => $request->email,
+            'ticket_string' => Str::random(32),
+            'status' => 'active',
+        ]);
     }
 
     /**

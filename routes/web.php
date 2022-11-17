@@ -29,6 +29,11 @@ Route::resource(
     \App\Http\Controllers\TicketController::class
 )->parameters(['tickets' => 'ticket:ticket_string']);
 
+Route::get('/ticket/download/{ticket}', [
+    \App\Http\Controllers\TicketController::class,
+    'download',
+])->name('ticket.download');
+
 Route::get('/check', [
     \App\Http\Controllers\TicketController::class,
     'check',

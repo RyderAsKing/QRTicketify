@@ -30,7 +30,8 @@
                                         class="badge @if($ticket->status == 'active') alert-success @else alert-danger @endif">{{$ticket->status}}</span>
                                 </td>
 
-                                <td><a href="#" class="btn btn-info text-white">Send ticket</a></td>
+                                <td><a href="{{route('ticket.download', $ticket)}}" target="_blank"
+                                        class="btn btn-info text-white">Download ticket</a></td>
                             </tr>
                             @endforeach
 

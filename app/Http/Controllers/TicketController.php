@@ -140,4 +140,9 @@ class TicketController extends Controller
             return $info;
         }
     }
+
+    public function download(Ticket $ticket)
+    {
+        return view('tickets.print', ['ticket' => $ticket]);
+    }
 }

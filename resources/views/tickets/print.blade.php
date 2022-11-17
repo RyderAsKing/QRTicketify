@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -17,8 +16,11 @@
             </div>
         </div>
     </div>
-    <a href="{{route('ticket.download', $ticket)}}" target="_blank" class="btn btn-info text-white mt-2">Download
-        ticket</a>
-
 </div>
+@endsection
+
+@section('script')
+<script>
+    window.print();
+</script>
 @endsection

@@ -30,7 +30,7 @@
         <a href="{{route('tickets.create')}}" class="btn btn-success mt-2 text-white">Create a new ticket</a> <a
             href="{{route('tickets.index')}}" class="btn btn-warning mt-2">Manage
             tickets</a>
-        <a href="{{route('check')}}" class="btn btn-danger mt-2">Check tickets</a>
+        <a href="{{route('check')}}" class="btn btn-danger mt-2 text-white">Check tickets</a>
     </div>
 
 </div>

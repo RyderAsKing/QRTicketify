@@ -23,8 +23,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-
+        // $this->registerPolicies();
+        // not required in Laravel 10 as it is invoked automatically by the framework
         //
     }
 }

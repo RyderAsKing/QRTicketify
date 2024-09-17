@@ -24,17 +24,11 @@ export function Events({ events }) {
     );
 }
 
-export default function Dashboard({ events }) {
+function Dashboard({ events }) {
     console.log(events);
     const eventsData = events.data;
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Events
-                </h2>
-            }
-        >
+        <>
             <Head title="Dashboard" />
 
             <div className="py-12">
@@ -68,6 +62,19 @@ export default function Dashboard({ events }) {
                     )}
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </>
     );
 }
+
+Dashboard.layout = (page) => (
+    <AuthenticatedLayout
+        header={
+            <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                Events
+            </h2>
+        }
+        children={page}
+    ></AuthenticatedLayout>
+);
+
+export default Dashboard;

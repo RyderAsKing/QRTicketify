@@ -4,7 +4,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, usePage } from "@inertiajs/react";
 import { useForm } from "@inertiajs/react";
 
-export default function Dashboard() {
+function Create() {
     const { data, setData, post, processing, errors } = useForm({
         name: "",
         description: "",
@@ -21,13 +21,7 @@ export default function Dashboard() {
     };
 
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    New Event
-                </h2>
-            }
-        >
+        <>
             <Head title="Create a new event" />
 
             <div className="py-12">
@@ -118,7 +112,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </>
     );
 }
 
@@ -136,3 +130,16 @@ export default function Dashboard() {
   }
   ```
 */
+
+Create.layout = (page) => (
+    <AuthenticatedLayout
+        header={
+            <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                New Event
+            </h2>
+        }
+        children={page}
+    />
+);
+
+export default Create;

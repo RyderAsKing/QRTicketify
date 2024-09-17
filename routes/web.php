@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
@@ -15,12 +16,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    $events = Event::paginate(20);
-    return Inertia::render('Dashboard', ['events' => $events]);
-})
+Route::get('/dashboard', [EventController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
+
+Route::resource('events', EventController::class)
+    ->except('index')
+    ->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name(

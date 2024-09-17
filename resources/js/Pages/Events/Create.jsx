@@ -1,4 +1,5 @@
 import Card from "@/Components/Card";
+import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, usePage } from "@inertiajs/react";
@@ -70,6 +71,10 @@ function Create() {
                                                         }}
                                                     />
                                                 </div>
+                                                <InputError
+                                                    message={errors.name}
+                                                    className="mt-2"
+                                                />
                                             </div>
                                         </div>
 
@@ -95,7 +100,12 @@ function Create() {
                                                     }}
                                                 />
                                             </div>
-                                            <p className="mt-3 text-sm leading-6 text-gray-600">
+                                            <InputError
+                                                message={errors.description}
+                                                className="mt-2"
+                                            />
+
+                                            <p className="mt-1 text-sm leading-6 text-gray-600">
                                                 Write a few sentences describing
                                                 the event.
                                             </p>

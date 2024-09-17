@@ -25,6 +25,7 @@
     "dependencies": {
         "@heroicons/react": "^2.1.5",
         "heroicons": "^2.1.5",
+        "qrcode": "^1.5.4",
         "react-toastify": "^10.0.5",
         "vite-plugin-full-reload": "^1.2.0"
     },

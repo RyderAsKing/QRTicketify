@@ -17,7 +17,7 @@ export function Tickets({ tickets }) {
                     image="/img/logo.png"
                     title={ticket.email}
                     // description={ticket.key}
-                    // href={route(`tickets.show`, ticket.id)}
+                    href={route(`ticket.show`, ticket.ticket_string)}
                 ></Card>
             ))}
         </div>
@@ -37,6 +37,7 @@ function Show({ event, tickets }) {
                         image={generateImageUrl(event.name, event.description)}
                         title={event.name}
                         description={event.description}
+                        href={route("events.edit", event.id)}
                     ></Card>
 
                     <hr />

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateEventRequest;
@@ -96,5 +97,11 @@ class EventController extends Controller
         return redirect()
             ->route('events.show', $event)
             ->with('success', 'Ticket created successfully');
+    }
+
+    public function showTicket(string $ticket)
+    {
+        $ticket = Ticket::where('ticket_string', $ticket)->firstOrFail();
+        return Inertia::render('Ticket', ['ticket' => $ticket]);
     }
 }

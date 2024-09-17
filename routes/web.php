@@ -28,7 +28,12 @@ Route::get('/events/{event}/create', [
     EventController::class,
     'createTicket',
 ])->name('events.tickets.create');
+
 Route::post('/events/{event}/create', [EventController::class, 'storeTicket']);
+
+Route::get('/ticket/{ticket}', [EventController::class, 'showTicket'])->name(
+    'ticket.show'
+);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name(

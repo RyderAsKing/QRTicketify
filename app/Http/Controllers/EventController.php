@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateEventRequest;
 
 class EventController extends Controller
 {
@@ -14,7 +15,7 @@ class EventController extends Controller
     public function index()
     {
         //
-        $events = Event::paginate(20);
+        $events = Event::latest()->paginate(20);
         return Inertia::render('Dashboard', ['events' => $events]);
     }
 
@@ -24,14 +25,18 @@ class EventController extends Controller
     public function create()
     {
         //
+        return Inertia::render('Events/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateEventRequest $request)
     {
         //
+        Event::create($request->validated());
+
+        return redirect()->route('dashboard');
     }
 
     /**

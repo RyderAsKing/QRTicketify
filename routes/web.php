@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $events = Event::all();
+    $events = Event::paginate(20);
     return Inertia::render('Dashboard', ['events' => $events]);
 })
     ->middleware(['auth'])

@@ -12,7 +12,10 @@ return new class extends Migration {
     {
         Schema::table('tickets', function (Blueprint $table) {
             //
-            $table->foreignId('event_id')->constrained();
+            $table
+                ->foreignId('event_id')
+                ->constrained()
+                ->nullable(); // nullable to make sure old tickets are not affected
         });
     }
 

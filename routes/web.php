@@ -24,6 +24,12 @@ Route::resource('events', EventController::class)
     ->except('index')
     ->middleware(['auth']);
 
+Route::get('/events/{event}/create', [
+    EventController::class,
+    'createTicket',
+])->name('events.tickets.create');
+Route::post('/events/{event}/create', [EventController::class, 'storeTicket']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name(
         'profile.edit'

@@ -4,12 +4,12 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, usePage } from "@inertiajs/react";
 
-export function Events({ events }) {
-    const generateImageUrl = (name, description) => {
-        const imageId = name.length + description.length;
-        return `https://www.gravatar.com/avatar/${imageId}?d=identicon&s=256`;
-    };
+export const generateImageUrl = (name = 1, description = 1) => {
+    const imageId = name.length + description.length;
+    return `https://www.gravatar.com/avatar/${imageId}?d=identicon&s=256`;
+};
 
+export function Events({ events }) {
     return (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {events.map((event) => (
@@ -18,6 +18,7 @@ export function Events({ events }) {
                     image={generateImageUrl(event.name, event.description)}
                     title={event.name}
                     description={event.description}
+                    href={route(`events.show`, event.id)}
                 ></Card>
             ))}
         </div>

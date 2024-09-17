@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Event;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateEventRequest;
+use App\Http\Requests\CreateTicketRequest;
 
 class EventController extends Controller
 {
@@ -44,11 +46,15 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Event $event)
     {
         //
+        $tickets = $event->tickets()->paginate(20);
+        return Inertia::render('Events/Show', [
+            'event' => $event,
+            'tickets' => $tickets,
+        ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -71,5 +77,24 @@ class EventController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function createTicket(Event $event)
+    {
+        return Inertia::render('Events/CreateTicket', ['event' => $event]);
+    }
+
+    public function storeTicket(CreateTicketRequest $request, Event $event)
+    {
+        $event->tickets()->create(
+            $request->validated() + [
+                'ticket_string' => Str::random(32),
+                'status' => 'active',
+            ]
+        );
+
+        return redirect()
+            ->route('events.show', $event)
+            ->with('success', 'Ticket created successfully');
     }
 }

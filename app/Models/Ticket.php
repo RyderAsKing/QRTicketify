@@ -9,9 +9,20 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ticket_string', 'status', 'email', 'used_at'];
+    protected $fillable = [
+        'ticket_string',
+        'status',
+        'email',
+        'used_at',
+        'event_id',
+    ];
 
     protected $casts = [
         'used_at' => 'timestamp',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 }

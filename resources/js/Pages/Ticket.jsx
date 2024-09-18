@@ -4,6 +4,7 @@ import Card from "@/Components/Card";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Head, Link } from "@inertiajs/react";
 import PrimaryButton from "@/Components/PrimaryButton";
+import { generateImageUrl } from "./Dashboard";
 
 function Ticket({ ticket }) {
     const qrCodeRef = useRef(null);
@@ -31,7 +32,16 @@ function Ticket({ ticket }) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-4">
-                    <Card title={ticket.email}>hi</Card>
+                    <Card
+                        title={ticket.event.name}
+                        image={generateImageUrl(
+                            ticket.event.name,
+                            ticket.event.description
+                        )}
+                        description={
+                            "This ticket was issued to " + ticket.email
+                        }
+                    />
                     <div className="mt-4 flex flex-col justify-center items-center">
                         <h3 className="text-lg font-medium text-gray-900">
                             Your Ticket QR Code

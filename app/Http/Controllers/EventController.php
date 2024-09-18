@@ -101,7 +101,9 @@ class EventController extends Controller
 
     public function showTicket(string $ticket)
     {
-        $ticket = Ticket::where('ticket_string', $ticket)->firstOrFail();
+        $ticket = Ticket::where('ticket_string', $ticket)
+            ->with('event')
+            ->firstOrFail();
         return Inertia::render('Ticket', ['ticket' => $ticket]);
     }
 }

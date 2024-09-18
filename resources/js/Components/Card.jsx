@@ -1,5 +1,4 @@
 import { Link } from "@inertiajs/react";
-import React from "react";
 
 const Card = ({ image, title, description, href }) => {
     return (

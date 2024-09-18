@@ -4,9 +4,9 @@ import Card from "@/Components/Card";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Head, Link } from "@inertiajs/react";
 import PrimaryButton from "@/Components/PrimaryButton";
-import { generateImageUrl } from "./Dashboard";
+import { generateImageUrl } from "../Dashboard";
 
-function Ticket({ ticket }) {
+function Show({ ticket }) {
     const qrCodeRef = useRef(null);
 
     useEffect(() => {
@@ -67,7 +67,7 @@ function Ticket({ ticket }) {
     );
 }
 
-Ticket.layout = (page) => (
+Show.layout = (page) => (
     <GuestLayout
         header={
             <h2 className="font-semibold text-xl text-gray-800 leading-tight">
@@ -78,4 +78,4 @@ Ticket.layout = (page) => (
     />
 );
 
-export default Ticket;
+export default Show;

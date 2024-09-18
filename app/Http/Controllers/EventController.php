@@ -104,6 +104,50 @@ class EventController extends Controller
         $ticket = Ticket::where('ticket_string', $ticket)
             ->with('event')
             ->firstOrFail();
-        return Inertia::render('Ticket', ['ticket' => $ticket]);
+        return Inertia::render('Ticket/Show', ['ticket' => $ticket]);
+    }
+
+    public function checkTicket()
+    {
+        return Inertia::render('Ticket/Check');
+    }
+
+    public function validateTicket(Request $request)
+    {
+        $request->validate([
+            'ticket_string' => 'required|string',
+        ]);
+
+        $ticket = Ticket::where('ticket_string', $request->ticket_string)
+            ->with('event')
+            ->first();
+
+        if (!$ticket) {
+            return redirect()
+                ->back()
+                ->with('error', 'Invalid ticket');
+        }
+
+        $info = [
+            'id' => $ticket->id,
+            'ticket' => $ticket->ticket_string,
+            'email' => $ticket->email,
+            'created' => $ticket->created_at->diffForHumans(),
+            'status' => $ticket->status,
+        ];
+
+        if ($ticket->status == 'active') {
+            $ticket->status = 'used';
+            $ticket->used_at = now();
+        }
+        $ticket->save();
+
+        // setting ticket status to used
+        $ticket->update(['status' => 'used']);
+
+        return Inertia::render('Ticket/Check', [
+            'ticket' => $info, // Pass ticket information as props
+            'event' => $ticket->event, // Pass event information as props
+        ])->with('success', 'Ticket validated successfully');
     }
 }

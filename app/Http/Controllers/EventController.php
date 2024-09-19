@@ -7,6 +7,8 @@ use App\Models\Event;
 use App\Models\Ticket;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Mail\TicketConfirmation;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CreateEventRequest;
 use App\Http\Requests\CreateTicketRequest;
 
@@ -87,12 +89,14 @@ class EventController extends Controller
 
     public function storeTicket(CreateTicketRequest $request, Event $event)
     {
-        $event->tickets()->create(
+        $ticket = $event->tickets()->create(
             $request->validated() + [
                 'ticket_string' => Str::random(32),
                 'status' => 'active',
             ]
         );
+
+        Mail::to($request->email)->send(new TicketConfirmation($ticket));
 
         return redirect()
             ->route('events.show', $event)

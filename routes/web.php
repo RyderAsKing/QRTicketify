@@ -37,11 +37,6 @@ Route::middleware(['auth'])->group(function () {
         'ticket.check'
     );
     Route::post('ticket/check', [EventController::class, 'validateTicket']);
-
-    Route::get('/ticket/{ticket}', [
-        EventController::class,
-        'showTicket',
-    ])->name('ticket.show');
 });
 
 Route::middleware('auth')->group(function () {
@@ -55,5 +50,9 @@ Route::middleware('auth')->group(function () {
         'profile.destroy'
     );
 });
+
+Route::get('/ticket/{ticket}', [EventController::class, 'showTicket'])->name(
+    'ticket.show'
+);
 
 require __DIR__ . '/auth.php';

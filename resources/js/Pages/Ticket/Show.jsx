@@ -28,7 +28,7 @@ function Show({ ticket }) {
 
     return (
         <>
-            <Head title="View Event" />
+            <Head title="View Ticket" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-4">

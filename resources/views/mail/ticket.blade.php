@@ -36,7 +36,7 @@
                                 <a href="{{ route('ticket.show', $ticket->ticket_string) }}" class="button"
                                     target="_blank"
                                     style="background-color: #2d3748; color: #ffffff; padding: 10px 20px; text-decoration: none; font-size: 16px; ">
-                                    Download Event
+                                    Download Ticket
                                 </a>
                             </div>
                         </td>

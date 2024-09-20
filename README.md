@@ -17,7 +17,14 @@
 
 # QRTicketify
 
-QRTicketify is a free, open-source Laravel project that allows admins to create events and send tickets to users via email. These tickets can be verified through the system (POS) when needed. It features a React JS-based frontend for an interactive user experience.
+QRTicketify is a comprehensive, free, and open-source event management and ticketing platform built using Laravel (PHP framework) for the backend and React for the frontend. It allows administrators to create and manage events effortlessly while sending tickets to users via email. These tickets are generated as QR codes, which can be scanned and verified through the system at point-of-sale (POS) locations, ensuring a smooth and secure event entry process.
+
+![Image](https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/preview/Merged.gif)
+
+- QR Code Generation: Generates unique QR codes for tickets that can be sent to users via email.
+- POS Integration: Tickets can be scanned and verified at POS for event entry.
+- Email Notification: Automatically send email notifications with ticket information and updates.
+- Multiple Event Management: Admins can create and manage multiple events.
 
 ## QRTicketify Installation Guide (Laravel 11)
 

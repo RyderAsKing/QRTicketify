@@ -1,10 +1,15 @@
 {
-    "name": "laravel/laravel",
+    "name": "ryderasking/qrticketify",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "QRTicketify is a free, open-source Laravel project that allows admins to create events and send tickets to users via email. These tickets can be verified through the system (POS) when needed. It features a React JS-based frontend for an interactive user experience.",
     "keywords": [
-        "framework",
-        "laravel"
+        "QRTicketify",
+        "Laravel",
+        "Event Management",
+        "Ticketing System",
+        "POS",
+        "ReactJS",
+        "Open-Source"
     ],
     "license": "MIT",
     "require": {

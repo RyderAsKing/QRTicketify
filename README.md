@@ -1,3 +1,14 @@
+<br>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/logo/White.png">
+    <img alt="QR Ticketify logo" src="https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/logo/Black.png" width="40%">
+  </picture>
+</div>
+
+<br>
+
 # QRTicketify
 
 QRTicketify is a free, open-source Laravel project that allows admins to create events and send tickets to users via email. These tickets can be verified through the system (POS) when needed. It features a React JS-based frontend for an interactive user experience.

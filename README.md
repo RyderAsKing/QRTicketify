@@ -5,6 +5,12 @@
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/logo/White.png">
     <img alt="QR Ticketify logo" src="https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/logo/Black.png" width="40%">
   </picture>
+  <br> <br>
+    
+  ![GitHub Workflow Status](https://img.shields.io/github/check-runs/ryderasking/qrticketify/main)
+  ![GitHub License](https://img.shields.io/github/license/ryderasking/qrticketify)
+  ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/ryderasking/qrticketify)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/ryderasking/qrticketify)
 </div>
 
 <br>
